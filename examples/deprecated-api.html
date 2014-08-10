@@ -80,7 +80,7 @@
 			}
 
 			R.DeployR.init( {
-				deployrURI: 'http://184.106.156.215:7300',
+				deployrURI: 'http://dhost:dport',
 				events: {
 
 					unload: {
@@ -139,8 +139,8 @@
 
 
 			R.DeployR.userLogin({
-				username: 'testuser',
-				password: 'secret',
+				username: 'USERNAME',
+				password: 'PASSWORD',
 				transaction: {
 					scope: this,
 					'arguments': { foo: 'FOO', bar: 'BAR'},
