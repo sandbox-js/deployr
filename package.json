@@ -2,7 +2,6 @@
   "name": "deployr",
   "version": "0.0.1",
   "description": "Simplified JavaScript client lib. for making requests to deployr.",
-  "private": true,
   "keywords": [
     "deployr",
     "deployr.io",
