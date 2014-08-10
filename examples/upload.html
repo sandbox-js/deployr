@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Upload example from the browser</title>
+		<script src="../browser/deployr.js"></script>
+	</head>
+	<body>
+		<p>1. Add your DeployR `host` location in `var config = {...}`</p>
+		<p>2. Add your basic credentials in `var config = {...}`</p>
+		<p>3. Choose a file to upload</p>
+		<p>4. Click the `upload` button</p>
+		<p>5. Open the browsers debug window to view logs</p>
+
+		<form>
+			<input id="the-file" name="file" type="file">
+		</form>		
+		<p>
+			<button onclick="upload()">Upload</button>
+		</p>
+
+		<script>
+		var config = {
+				"deployrEndpoint": "http://184.106.156.215:7300",
+				"cors": true,
+				"credentials": {
+					"username": "testuser",
+					"password": "secret"
+				}
+			};
+
+		function upload() {
+			// HTML5 File Object
+			var file = document.getElementById('the-file').files[0];
+
+			deployr.configure( { 
+				logging: true, 
+				cors: config.cors, 
+				host: config.deployrEndpoint
+			})
+			.io('/r/user/login')
+			.data({ username: 'testuser' , password: 'secret' })
+			.error(function(err) {
+				// do something with the error
+			})
+			.end(function(res, chain) {
+				// do something with the response
+			})
+			.io('/r/repository/file/upload')
+			.data({ filename: 'TestUpload.R', descr: 'Sample R script upload' })    
+			.attach(file)
+			.error(function(err) {
+				// do something with the error
+			})
+			.end(function(res, chain) {
+				// do something with the response
+			});
+		}
+		</script>
+	</body>
+</html>

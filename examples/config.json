@@ -1,0 +1,7 @@
+{
+	"deployrEndpoint": "http://184.106.156.215:7300",
+	"credentials": {
+	   "username": "testuser",
+	   "password": "secret"
+	}
+}

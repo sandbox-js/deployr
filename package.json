@@ -1,21 +1,51 @@
 {
   "name": "deployr",
   "version": "0.0.1",
-  "description": "DeployR JavaScript Client lib.",
-  "main": "",
-  "scripts": {
-    "start": ""
-  },
+  "description": "Simplified JavaScript client lib. for making requests to deployr.",
+  "private": true,
+  "keywords": [
+    "deployr",
+    "deployr.io",
+    "ajax"
+  ],
+  "author": "Sean Wells <Sean Wells <sean.wells@revolutionanalytics.com>",
+  "contributors": [
+    {
+      "name": "Sean Wells",
+      "email": "sean.wells@revolutionanalytics.com>"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/sandbox-js/deployr"
+    "url": "git://github.com/deployr/deployr.io.git"
   },
-  "author": "sandbox-js",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sandbox-js/deployr"
+  "scripts": {
+    "start": "./node_modules/.bin/gulp start",
+    "build": "./node_modules/.bin/gulp"
   },
-  "homepage": "https://github.com/sandbox-js/deployr",
+  "devDependencies": {
+    "browserify-shim": "~3.4.1",
+    "browserify": "~3.36.0",
+    "connect": "~2.14.3",
+    "vinyl-source-stream": "~0.1.1",
+    "gulp": "~3.6.0",
+    "gulp-changed": "~0.3.0",
+    "gulp-livereload": "~1.2.0",
+    "gulp-notify": "~1.2.4",
+    "gulp-uglify": "~0.3.1",
+    "gulp-rename": "~1.2.0 ",
+    "gulp-clean": "~0.3.0",
+    "gulp-jshint": "^1.7.1"
+  },
   "dependencies": {
-  }
+    "superagent": "0.18.0",
+    "d.js": "^0.6.0",
+    "ws": "^0.4.32"
+  },
+  "main": "./deployr.js",
+  "engines": {
+    "node": "*"
+  },
+  "license": "Apache 2.0 License",
+  "readmeFilename": "README.md"
 }

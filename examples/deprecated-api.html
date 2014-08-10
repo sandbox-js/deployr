@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Deprecated API Example</title>
+	</head>
+	<body>
+		<script src="../browser/deployr.js"></script>
+		<script>
+
+		(function(R) {
+
+			// All possible RInputs
+			function createAllRInputs() {
+				var rinputs = [];
+				rinputs.push(R.RDataFactory.createNumeric('input_numeric', 5));
+				rinputs.push(R.RDataFactory.createInteger('input_integer', 10));
+				rinputs.push(R.RDataFactory.createBoolean('input_boolean', true));
+				rinputs.push(R.RDataFactory.createString('input_string', 'Hello'));
+				rinputs.push(R.RDataFactory.createDate('input_date', new Date()));
+				rinputs.push(R.RDataFactory.createPOSIXDate('input_posixct', new Date()));
+				rinputs.push(R.RDataFactory.createNumericVector('input_numericVector', [1.1, 2.1, 3.1, 4.1, 5.1]));
+				rinputs.push(R.RDataFactory.createIntegerVector('input_integerVector', [1, 2, 3, 4, 5]));
+				rinputs.push(R.RDataFactory.createBooleanVector('input_booleanVector', [true, false, true, true]));
+				rinputs.push(R.RDataFactory.createStringVector('input_StringVector', ['Hello', 'how', 'are', 'you?']));
+				rinputs.push(R.RDataFactory.createDateVector('input_dateVector', [new Date(), new Date(), new Date()]));
+				rinputs.push(R.RDataFactory.createPOSIXDateVector('input_posixctVector', [new Date(), new Date(), new Date()]));
+				rinputs.push(R.RDataFactory.createFactor('input_orderedfactor', [1,2,3], true, [4,5,6], ['a', 'b' , 'c']));
+				rinputs.push(R.RDataFactory.createFactor('input_unorderedfactor', [1,2,3], false, [4,5,6], ['a', 'b' , 'c']));
+				rinputs.push(R.RDataFactory.createNumericMatrix('input_numericMatrix', [ [1.1, 2.1, 3.1, 4.1, 5.1] ]));
+				rinputs.push(R.RDataFactory.createIntegerMatrix('input_integerMatrix', [ [1, 2, 3, 4, 5] ]));
+				rinputs.push(R.RDataFactory.createBooleanMatrix('input_logicalMatrix', [ [true, false, true, true] ]));
+				rinputs.push(R.RDataFactory.createStringMatrix('input_characterMatrix', [ ['Hello', 'how', 'are', 'you?'] ]));
+				//rinputs.push(R.RDataFactory.create('input_', ));
+				//rinputs.push(R.RDataFactory.create('input_', ));
+
+				return rinputs;
+
+/*
+  .list('input_list', [
+    RInput.numericVector('first', [10, 11, 12]),
+    RInput.integer('input_l_integer', 1),
+    RInput.logical('input_l_logical', true),
+    RInput.character('input_l_character', 'Hello'),
+    RInput.date('input_l_date', new Date()),
+    RInput.posixct('input_l_posixct', new Date()),
+    RInput.numericVector('input_l_numericVector', [1.1, 2.1, 3.1, 4.1, 5.1]),
+    RInput.integerVector('input_l_integerVector', [1, 2, 3, 4, 5]),
+    RInput.logicalVector('input_l_logicalVector', [true, false, true, true]),
+    RInput.characterVector('input_l_characterVector', ['Hello', 'how', 'are', 'you?']),
+    RInput.dateVector('input_l_dateVector', [new Date(), new Date(), new Date()]),
+    RInput.posixctVector('input_posixctVector', [new Date(), new Date(), new Date()]),
+    RInput.factor('input_l_factor', [1,2,3], false, [4,5,6], ['a', 'b' , 'c']),
+    RInput.factor('input_l_orderedfactor', [1,2,3], true, [4,5,6], ['a', 'b' , 'c']),  
+    RInput.numericMatrix('input_l_numericMatrix', [ [1.1, 2.1, 3.1, 4.1, 5.1] ]),
+    RInput.integerMatrix('input_l_integerMatrix', [ [1, 2, 3, 4, 5] ]),
+    RInput.logicalMatrix('input_l_logicalMatrix', [ [true, false, true, true] ]),
+    RInput.characterMatrix('input_characterMatrix', [ ['Hello', 'how', 'are', 'you?'] ])  
+  ])
+  .dataframe('input_dataframe', [
+    RInput.integer('input_df_integer', 1),
+    RInput.logical('input_df_logical', true),
+    RInput.character('input_df_character', 'Hello'),
+    RInput.date('input_df_date', new Date()),
+    RInput.posixct('input_df_posixct', new Date()),
+    RInput.numericVector('input_df_numericVector', [1.1, 2.1, 3.1, 4.1, 5.1]),
+    RInput.integerVector('input_df_integerVector', [1, 2, 3, 4, 5]),
+    RInput.logicalVector('input_df_logicalVector', [true, false, true, true]),
+    RInput.characterVector('input_df_characterVector', ['Hello', 'how', 'are', 'you?']),
+    RInput.dateVector('input_df_dateVector', [new Date(), new Date(), new Date()]),
+    RInput.posixctVector('input_df_posixctVector', [new Date(), new Date(), new Date()]),    
+    RInput.factor('input_df_factor', [1,2,3], false, [4,5,6], ['a', 'b' , 'c']),
+    RInput.factor('input_df_orderedfactor', [1,2,3], true, [4,5,6], ['a', 'b' , 'c']), 
+    RInput.numericMatrix('input_df_numericMatrix', [ [1.1, 2.1, 3.1, 4.1, 5.1] ]),
+    RInput.integerMatrix('input_df_integerMatrix', [ [1, 2, 3, 4, 5] ]),
+    RInput.logicalMatrix('input_df_logicalMatrix', [ [true, false, true, true] ]),
+    RInput.characterMatrix('input_df_characterMatrix', [ ['Hello', 'how', 'are', 'you?'] ])
+  ])*/
+			}
+
+			R.DeployR.init( {
+				deployrURI: 'http://184.106.156.215:7300',
+				events: {
+
+					unload: {
+						 disableautosave: true,
+						 dropworkspace: true,
+						 dropdirectory: true,
+						 drophistory: true,
+						 flushhistory: true
+					},
+
+					globalIO: {
+						scope: this,
+						lifecycle: {
+							
+							start: function() {
+								console.log('GLOBAL:START');
+							},
+
+							success: function(res, api) {
+								console.log('GLOBAL:SUCCESS');
+							},
+
+							failure: function(code, res, api) {
+								console.log('GLOBAL:FAILURE');
+							},
+
+							complete: function() {
+								console.log('GLOBAL:COMPLETE');
+							},
+
+							end: function() {
+								console.log('GLOBAL:END');
+							}
+						},
+
+						statusCode: {
+							500: function(api, res) {
+								console.log('GLOBAL:500');
+								console.log('API::: ' + api);
+							},
+
+							900: function(api, res) {
+								console.log('GLOBAL:900');
+								console.log('API::: ' + api);
+							},
+
+							940: function(api, res) {
+								console.log('GLOBAL:940');
+								console.log('API::: ' + api);
+							}
+						}
+					}
+				}
+			});
+
+
+
+			R.DeployR.userLogin({
+				username: 'testuser',
+				password: 'secret',
+				transaction: {
+					scope: this,
+					'arguments': { foo: 'FOO', bar: 'BAR'},
+					statusCode: {
+						940: function() {
+							console.log('TRANSACTION:940');
+						}
+					}
+				}
+			}, {
+				scope: this,
+				success: function(res) {
+					console.log('end----/r/user/login------');
+					console.log(res);	  
+					console.log('--------------------------');
+
+					R.DeployR.repositoryScriptExecute({ 
+						filename: 'DeployR - Hello World', 
+						author: 'testuser',
+						inputs: createAllRInputs()
+					}, {
+
+						scope: this,
+						success: function(res) {
+							console.log(res);
+						}
+					} );
+				},
+
+				failure: function(res) {
+					console.log('error----/r/user/login------');
+					console.log(res);	  
+					console.log('----------------------------');
+				}
+			});
+	
+		})(window.Revolution);
+
+		</script>
+	</body>
+</html>
