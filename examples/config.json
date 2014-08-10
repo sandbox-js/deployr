@@ -1,7 +1,7 @@
 {
-	"deployrEndpoint": "http://184.106.156.215:7300",
+	"deployrEndpoint": "http://dhost:dport",
 	"credentials": {
-	   "username": "testuser",
-	   "password": "secret"
+	   "username": "USERNAME",
+	   "password": "PASSWORD"
 	}
 }
