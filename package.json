@@ -1,0 +1,21 @@
+{
+  "name": "deployr",
+  "version": "0.0.1",
+  "description": "DeployR JavaScript Client lib.",
+  "main": "",
+  "scripts": {
+    "start": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sandbox-js/deployr"
+  },
+  "author": "sandbox-js",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sandbox-js/deployr"
+  },
+  "homepage": "https://github.com/sandbox-js/deployr",
+  "dependencies": {
+  }
+}
