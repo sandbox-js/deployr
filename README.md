@@ -31,7 +31,7 @@ Browser
 If your environment is the browser the JavaScript client library can be found
 here:
 
-```
+```sh
 ./deployr/browser/deployr.js
 ./deployr/browser/deployr.min.js
 ```
