@@ -20,9 +20,9 @@ Links
 Environments
 ============
 
-We recommend you [Download and install](http://nodejs.org/download/) Node.js.
-It is __not__ a requirment for the browser however using the JavaScript client 
-library from within a server or from the commandline in addition to the browser
+We recommend you [download and install](http://nodejs.org/download/) Node.js.
+It is __not__ a requirement for the browser however using the JavaScript client 
+library from within a server or from the command line in addition to the browser
 can be powerful!
 
 Browser
@@ -32,8 +32,8 @@ If your environment is the browser the JavaScript client library can be found
 here:
 
 ```
-./browser/deployr.js
-./browser/deployr.min.js
+./deployr/browser/deployr.js
+./deployr/browser/deployr.min.js
 ```
 
 Node.js
@@ -51,14 +51,14 @@ Browser
 
 Using the browser version:
 
-```
-./browser/deployr.js
-./browser/deployr.min.js
+```bash
+./deployr/browser/deployr.js
+./deployr/browser/deployr.min.js
 ``` 
 
 Include either one on your page in the `<script>` tag:
 
-```
+```html
 <!-- Latest compiled raw JavaScript variation -->
 <script src="./browser/deployr.js"></script>
 
@@ -104,7 +104,7 @@ environments. The intention of the examples are to demonstrate the syntax and
 core areas of the JavaScript API. They are not intended to be a tutorial on how 
 to write web applications.
 
-We encourage you to start here and customize these examples and adapt them to 
+We encourage you to start here and customise these examples and adapt them to 
 suit your needs as you explore the API.
 
 - __./examples/js-api:__ Introduces the core areas of the JavaScript API.
@@ -124,7 +124,7 @@ __Browser:__
 
 ```
 {
-	"deployrEndpoint": "http://dhost:port",
+	"endpoint": "http://dhost:port",
 	"credentials": {
 	   "username": "testuser",
 	   "password": "changeme"
@@ -153,7 +153,7 @@ Set the DeployR endpoint and basic authentication credentials in
 
 ```
 {
-	"deployrEndpoint": "http://dhost:port",
+	"endpoint": "http://dhost:port",
 	"credentials": {
 	   "username": "testuser",
 	   "password": "changeme"
