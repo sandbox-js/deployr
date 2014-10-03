@@ -53,8 +53,8 @@ Browser
 Using the browser version:
 
 ```bash
-./rbroker/browser/deployr.js
-./rbroker/browser/deployr.min.js
+./rbroker/browser/rbroker.js
+./rbroker/browser/rbroker.min.js
 ``` 
 
 Include either one on your page in the `<script>` tag:
