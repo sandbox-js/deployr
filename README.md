@@ -1,17 +1,18 @@
-JavaScript Client Library for DeployR 
-=====================================
+JavaScript RBroker Framework for DeployR
+========================================
 
-The JavaScript client library is a light-weight fluent API used to communicate 
-with DeployR from both the browser and Node.js environments. It is crafted for 
-flexibility, readability, and a low learning curve.
+The JavaScript RBroker Framework provides a simple yet powerful API that 
+supports the rapid integration of R Analytics inside any browser or Node.js 
+based application. Simply define an _RTask_, submit your task to an instance of 
+_RBroker_ and then retrieve your task results. It really is that simple.
 
 Links
 -----
 
-  * [Download](http://deployr.revolutionanalytics.com/docanddown/#clientlib)
-  * [User Guide Documentation](http://deployr.revolutionanalytics.com/documents/dev/client-jsdoc)
-  * [API Documentation](http://deployr.revolutionanalytics.com/documents/dev/client-jsdoc/api/)
-  * [Installation](http://deployr.revolutionanalytics.com/documents/dev/client-jsdoc/#install)  
+  * [Download](http://deployr.revolutionanalytics.com/docanddown/#rbroker)
+  * [Tutorial](http://deployr.revolutionanalytics.com/documents/dev/rbroker/)
+  * [API Documentation](http://deployr.revolutionanalytics.com/documents/dev/rbroker-jsdoc)
+  * [Installation](#installationl)  
   * [Simple examples](#examples)
   * [Gulp, for building](#building)
   * [Tests](#tests)
@@ -28,19 +29,19 @@ can be powerful!
 Browser
 -------
 
-If your environment is the browser the JavaScript client library can be found
+If your environment is the browser the JavaScript RBroker Framework can be found
 here:
 
-```shell
-./deployr/browser/deployr.js
-./deployr/browser/deployr.min.js
+```
+./rbroker/browser/rbroker.js
+./rbroker/browser/rbroker.min.js
 ```
 
 Node.js
 -------
 
-If your environment is Node then the entire root ```./deployr/``` directory 
-represents the JavaScript client library as it uses the same source for both 
+If your environment is Node then the entire root ```./rbroker/``` directory 
+represents the JavaScript RBroker Framework as it uses the same source for both 
 environments.
 
 Installation
@@ -52,65 +53,73 @@ Browser
 Using the browser version:
 
 ```bash
-./deployr/browser/deployr.js
-./deployr/browser/deployr.min.js
+./rbroker/browser/deployr.js
+./rbroker/browser/deployr.min.js
 ``` 
 
 Include either one on your page in the `<script>` tag:
 
 ```html
 <!-- Latest compiled raw JavaScript variation -->
-<script src="./browser/deployr.js"></script>
+<script src="./browser/rbroker.js"></script>
 
 Or
 
 <!-- Latest compiled minified JavaScript variation -->
-<script src="./browser/deployr.min.js"></script>
+<script src="./browser/rbroker.min.js"></script>
 ```
 
 Node.js
 -------
 
-1. [Download and install](http://nodejs.org/download/) Node.js, which includes 
-npm. npm, which stands for _node packaged modules_, is a way to manage 
-development dependencies through Node.js.
+[Download and install](http://nodejs.org/download/) Node.js, which includes npm.
+npm, which stands for _node packaged modules_, is a way to manage development 
+dependencies through Node.js.
 
-2. From the command line:
+From the command line:
 
-  1. Navigate to the root `/deployr/` directory.
+1. Navigate to the root ```/rbroker/``` directory.
 
-  2. Run `npm install --production`. npm will look at the package.json file and 
-     automatically install the necessary local runtime dependencies listed there.
+2. Run ```npm install --production```. npm will look at the package.json file 
+and automatically install the necessary local runtime dependencies listed there.
 
-3. Since the DeployR JavaScript client library is not yet registered as a 
-_published npm package_, after running `npm install --production` you will need 
-to manually copy the entire `/deployr/` directory into the `node_modules` 
-directory of the Node.js project that will be using it. This will change in the 
-near future so you will be able to just include it as a dependency in 
-`package.json`. Sorry.
+3. Include the JavaScript Client Library for DeployR ```deployr``` dependency 
+by first installing it using the directions outlined [here](http://deployr.revolutionanalytics.com/documents/dev/client-jsdoc/#install). 
 
-4. `require` the directory:
+4. Once installed copy the entire ```/deployr``` directory into ```./rbroker/node_modules```.
+This step is needed because the JavaScript Client Library for DeployR is 
+**not yet** registered as a public npm package. This is comming soon.
+
+5. Similar to the JavaScript Client Library for DeployR, the JavaScript RBroker 
+library is **not yet** registered as a published npm package either. After 
+running ```npm install --production``` in step 2, you will need to manually copy 
+the entire ```/rbroker/``` directory into the ```node_modules``` directory of 
+the Node.js project that will be using it.
+
+6. ```require``` the directory in your code:
 
 ```
-var deployr = require('deployr');
-```
+var rbroker = require('rbroker');
+````
 
 Examples
 ========
 
-The DeployR JavaScript client library ships with a set of small examples under 
-the __./deployr/examples__ directory that run in both the browser and Node.js 
+The JavaScript RBroker library ships with a set of small examples under the 
+__./rbroker/examples__ directory that run in both the browser and Node.js 
 environments. The intention of the examples are to demonstrate the syntax and 
 core areas of the JavaScript API. They are not intended to be a tutorial on how 
 to write web applications.
 
-We encourage you to start here and customise these examples and adapt them to 
+We encourage you to start here and customize these examples and adapt them to 
 suit your needs as you explore the API.
 
-- __./examples/js-api:__ Introduces the core areas of the JavaScript API.
+__./examples/tutorial:__ Introduces the three RBroker runtimes available. 
+These runtimes are identified as:
 
-- __./examples/tutorial:__ Introduces the top-level R analytics services exposed 
-on the DeployR API.
+1. Discrete Task Runtime
+2. Pooled Task Runtime
+3. Background Task Runtime
 
 Running
 -------
@@ -124,26 +133,27 @@ __Browser:__
 
 ```
 {
-	"endpoint": "http://dhost:port",
+	"host": "http://dhost:port",
+	"cors:" true,
 	"credentials": {
 	   "username": "testuser",
-	   "password": "changeme"
+	   "password": "PASSWORD"
 	}
 }	
 ```
 
-Alternatively, you can run the examples as is without moving them via the 
-embedded web server if you have Node.js installed:
+Alternatively, you can run the examples without moving them via the embedded 
+web server:
 
 `$ npm install --global gulp`
 
-`$ cd ./deployr`
+`$ cd ./rbroker`
 
 `$ npm install`
 
 `$gulp start`
 
-Open your browser to _http://localhost:3000/examples/_ and select an example 
+Open your browser to _http://localhost:8080/examples/_ and select an example 
 .html file to run.
 
 __Node.js:__
@@ -153,10 +163,10 @@ Set the DeployR endpoint and basic authentication credentials in
 
 ```
 {
-	"endpoint": "http://dhost:port",
+	"host": "http://dhost:port",
 	"credentials": {
 	   "username": "testuser",
-	   "password": "changeme"
+	   "password": "PASSWORD"
 	}
 }
 
@@ -169,7 +179,7 @@ From the command line run one of the Node.js examples:
 Building
 ========
 
-This section only pertains to _Browser_ environment.  
+This section only pertains to _Browser_ environments. 
 
 Our dev and release builds are handled by [gulp.js](http://gulpjs.com/).
 
@@ -189,7 +199,7 @@ Shortcuts
 
  * `gulp` Runs a build.
  * `gulp start` Runs a build and starts a local webserver with LiveReload 
- (port __3000__) rebuilding on file changes.
+ (port __8080__) rebuilding on file changes.
 
 Destination
 -----------
